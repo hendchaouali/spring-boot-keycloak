@@ -18,24 +18,24 @@ Un client lance une requête HTTP, et le serveur renvoie une réponse à travers
 ## Configuration d'un serveur Keycloak
 
 ##### 1. Téléchargement et installation de Keycloak
-~ Télécharger [Keycloak](https://www.keycloak.org/downloads) à partir de la source officielle.
+~ Téléchargez [Keycloak](https://www.keycloak.org/downloads) à partir de la source officielle.
 
-~ Une fois que le fichier zip est téléchargé, nous pouvons décompresser et démarrer Keycloak depuis le terminal :
+~ Une fois que le fichier zip est téléchargé, décompressez le zip et démarrez Keycloak depuis le terminal :
 ```
 cd keycloak-16.1.0
 ./standalone.sh -Djboss.socket.binding.port-offset=100
 ```
 ![ScreenShot](src/main/resources/images/standalone-execution.PNG)
 
-Par la suite, nous ouvrons le navigateur et visitons http://localhost:8180 . Nous serons redirigés vers http://localhost:8180/auth pour créer une connexion administrative :
+Par la suite, ouvrez le navigateur et visitez http://localhost:8180 . Nous serons redirigés vers http://localhost:8180/auth pour créer une connexion administrative :
 
 ![ScreenShot](src/main/resources/images/admin-keycloak.PNG)
 
-Maintenant nous créons un utilisateur administrateur : saisir le username, password et la confirmation de password (exemple : admin/admin).
+Maintenant vous créez un utilisateur administrateur : saisir le username, password et la confirmation de password (exemple : admin/admin).
 
 ![ScreenShot](src/main/resources/images/admin-created-keycloak.PNG)
 
-Puis nous accédons à la **Administration console**
+Puis vous accédez à la **Administration console**
 
 ![ScreenShot](src/main/resources/images/administration-console.PNG)
 
@@ -57,11 +57,11 @@ Puis nous accédons à la **Administration console**
 * **Access Token** : Un jeton d'accès qui peut être fourni dans le cadre d'une requête HTTP. 
 
 ##### 3. Création d'un realm
-* Cliquer sur le bouton "Add realm"
+* Cliquez sur le bouton "Add realm"
 
 ![ScreenShot](src/main/resources/images/add-realm-1.png)
 
-* Nous donnons un nom au realm : **PlaylistKeycloak** puis vous appuyez sur le bouton "Create".
+* Donnez un nom au realm : **PlaylistKeycloak** puis appuyez sur le bouton "Create".
 
 ![ScreenShot](src/main/resources/images/add-realm-2.PNG)
 
