@@ -273,7 +273,8 @@ Les politiques d'accès pour nos points de terminaison d'application sont :
 
 * **/api/*** : L'utilisateur doit être authentifié et avoir le rôle "**Admin**" pour exécuter toutes les requêtes qui commence par "/api/"
 
-* La version finale de la classe **KeycloakSecurityConfig**
+La version finale de la classe **KeycloakSecurityConfig**
+
 ```java
 @KeycloakConfiguration
 public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
