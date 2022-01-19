@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "c051368d-982f-451c-a4ed-dcbd48a652c1",
+		"name": "playlistKeycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getSongs",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/songs",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var res = pm.response.json();\r",
+							"pm.environment.set(\"token\",  res.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "playlist-keycloak-client",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "eros",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "eros",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8180/auth/realms/PlaylistKeycloak/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8180",
+					"path": [
+						"auth",
+						"realms",
+						"PlaylistKeycloak",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSong",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"For the lover i have lost\",\r\n    \"description\": \"Live At Abbey Road Studios\",\r\n    \"duration\": \"3:01\",\r\n    \"category\": \"POP\",\r\n    \"artistName\": \"SAM smith\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/songs",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"songs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
